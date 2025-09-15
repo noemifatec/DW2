@@ -1,0 +1,14 @@
+body {
+   background-color: #d3d3d3; 
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+} 
