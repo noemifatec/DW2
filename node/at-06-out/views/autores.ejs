@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<h1>Autores</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Autor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% listaAutores.forEach((autor, index) => { %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= autor %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('partials/footer') %>
+
