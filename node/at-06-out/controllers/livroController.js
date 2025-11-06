@@ -44,3 +44,34 @@ export const editoras = (req, res) => {
     title: 'Editoras'
   });
 };
+
+export function novoLivro(req, res) {
+  res.render("novoLivro"); // crie o arquivo views/novoLivro.ejs
+}
+
+export function editarLivro(req, res) {
+  const livro = livros.find(l => l.id == req.params.id);
+  res.render("editarLivro", { livro });
+}
+
+export function atualizarLivro(req, res) {
+  const { id, titulo, autor, editora } = req.body;
+  const livro = livros.find(l => l.id == id);
+  if (livro) {
+    livro.titulo = titulo;
+    livro.autor = autor;
+    livro.editora = editora;
+  }
+  res.redirect("/catalogo");
+}
+
+export function excluirLivro(req, res) {
+  const { id } = req.params;
+  const index = livros.findIndex(l => l.id == id);
+  if (index !== -1) livros.splice(index, 1);
+  res.redirect("/catalogo");
+}
+
+
+
+
