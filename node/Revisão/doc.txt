@@ -1,0 +1,7 @@
+npm -v: Verifica a versão do npm
+
+npm init: Inicia um projeto Node.js
+
+npm install express--save: Instala o express.js
+
+Instalando: npm install express nodemon ejs
