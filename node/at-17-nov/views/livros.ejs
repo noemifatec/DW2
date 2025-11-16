@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>livros</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">the books</h1>
+    <hr>
+
+    <div class="container">
+        <h1>Cadastrar novo livro</h1>
+        <form action="/livros/new" method="post">
+            <label>Título:</label>
+            <input type="text" name="titulo">
+            <label>Autor:</label>
+            <input type="text" name="autor">
+            <label>Editora:</label>
+            <input type="text" name="editora">
+            <input type="submit" value="Cadastrar">
+        </form>
+        <br>
+        <hr><br>
+    </div>
+
+    <table>
+        <thead>
+            <th style="width: 150px; text-align: left;">Título:</th>
+            <th style="width: 150px; text-align: left;">Autor:</th>
+            <th style="width: 150px; text-align: left;">Editora:</th>
+            <th style="width: 150px; text-align: left;">Ações:</th>
+        </thead>
+        <tbody>
+            <%livros.forEach(livro=>{%>
+                <tr>
+                    <td>
+                        <%= livro.titulo %>
+                    </td>
+                    <td>
+                        <%= livro.autor %>
+                    </td>
+                    <td>
+                        <%= livro.editora %>
+                    </td>
+                     <td>
+                <a href="/livros/update/<%= livro.id %>">
+                    <button>Atualizar</button>
+                </a>
+            </td>
+                    <td><a href="/livros/delete/<%= livro.id %>"><button onclick="return confirm('Deseja mesmo excluir o livro <%= livro.titulo%>?')">Excluir</button></a></td>
+                </tr>
+                <%});%>
+        </tbody>
+    </table>
+
+    <footer style="text-align: center;">
+        <hr>
+        The Books &copy; 2025
+    </footer>
+</body>
+
+</html>

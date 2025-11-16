@@ -1,9 +1,9 @@
 import express from 'express';
-import Filme from '../models/livbro.js';
+import Livro from '../models/Livro.js';
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    Filme.findAll().then((livros) => {
+    Livro.findAll().then((livros) => {
         res.render("livros", {
             livros: livros,
         });
@@ -18,7 +18,8 @@ router.post("/livros/new", (req, res) => {
     const autor = req.body.autor;
     const editora = req.body.editora;
 
-    Filme.create({
+    Livro.create({
+        id: id,
         titulo: titulo,
         autor: autor,
         editora: editora,
